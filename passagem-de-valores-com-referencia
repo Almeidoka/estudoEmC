@@ -1,0 +1,22 @@
+#include <stdio.h>
+//o * é utilizado para passar um parametro de referencia 
+int calcularP(int *a, int *b,int *soma, int *mult){
+    //utilizando a passagem por referencia, o uso do return n se torna necessário, pois o valor pode ser atribuido diretamente pela função,
+    // tornando possivel um "return" de mais de um valor 
+    *soma = *a + *b;
+    *mult = *a * *b;
+}
+int calcular(int a, int b){
+    printf("\n a multiplicação e %d", (a*b));
+    printf("\n A soma e %d",(a+b));
+}
+
+int main()
+{
+    int a = 10;
+    int b =10;
+    calcular(a,b);
+    int soma, mult;
+    calcularP(&a,&b,&soma,&mult);
+    return 0;
+}
